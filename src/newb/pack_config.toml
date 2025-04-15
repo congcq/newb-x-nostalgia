@@ -1,0 +1,54 @@
+name = "Newb X Nostalgia"
+version = [0, 1, 0]
+min_supported_mc_version = [1, 21, 20]
+description = '''
+§c%w
+§7- Work in progress
+%v
+§3https://devendrn.github.io/newb-shader/
+''' # %w = patch warning, %v = version
+authors = ["amg, devendrn"]
+url = "https://devendrn.github.io/newb-shader/"
+uuid = "f0fa34e1-b783-4896-8934-10986b911ebd" # Use https://www.uuidgenerator.net/version4
+materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
+
+[info] 
+copyright = '''
+Copyright © 2024 %a, and "Newb Shader" Contributors
+
+This compiled "Newb Shader" resource pack (source code: https://github.com/devendrn/newb-x-mcbe under MIT License) is licensed under CC BY-ND 4.0 (https://creativecommons.org/licenses/by-nd/4.0/). Redistribute only unmodified copies with proper attribution to "Newb Shader" and variant creators (if any). Do not distribute derivatives.
+
+You can compile the shader from source and distribute the result under your own terms (compatible with the MIT License).
+
+Contact (Discord Server): https://discord.gg/newb-community-844591537430069279
+''' # %a = authors
+credits = '''
+'''
+
+# subpacks are arranged in left to right order
+# right-most subpack is enabled by default
+
+[[subpack]]
+define = "SOFTER"
+materials = ["Clouds"]
+description = '''
+Softer cloud shape
+'''
+
+[[subpack]]
+define = "LITE"
+materials = ["RenderChunk", "Clouds"]
+description = '''
+Lite
+•Vanilla Cloud 
+•Disable heavy features
+(Not guaranteed good performance on devices which are too low-end)
+
+'''
+
+[[subpack]]
+define = "DEFAULT"
+materials = []
+description = '''
+Default
+'''
