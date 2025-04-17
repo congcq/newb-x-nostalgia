@@ -55,7 +55,7 @@
 #define NL_END_AMBIENT    vec3(0.35,0.15,0.3)
 
 /* Torch colors */
-#define NL_OVERWORLD_TORCH_COL  vec3(1.0,0.35,0.15)
+#define NL_OVERWORLD_TORCH_COL  vec3(1.0,0.4,0.2)
 #define NL_UNDERWATER_TORCH_COL vec3(0.26,0.28,0.46)
 #define NL_NETHER_TORCH_COL     vec3(1.0,0.25,0.26)*2.0
 #define NL_END_TORCH_COL        vec3(0.9,0.4,0.2)
@@ -184,8 +184,8 @@
 #define NL_GODRAY 0.4 // [toggle] 0.1 subtle ~ 0.8 strong
 
 /* Sky reflection */
-#define NL_GROUND_REFL 0.1       // [toggle] 0.2 slightly reflective ~ 1.0 fully reflect sky 
-#define NL_GROUND_RAIN_WETNESS 2.0 // 0.0 no wetness ~ 1.0 fully wet blocks when raining
+#define NL_GROUND_REFL 0.05       // [toggle] 0.2 slightly reflective ~ 1.0 fully reflect sky 
+#define NL_GROUND_RAIN_WETNESS 3.0 // 0.0 no wetness ~ 1.0 fully wet blocks when raining
 #define NL_GROUND_RAIN_PUDDLES 1.0 // 0.0 no puddles ~ 1.0 puddles
 //#define NL_GROUND_AURORA_REFL    // [toggle] aurora reflection on ground
 
@@ -194,9 +194,9 @@
 #define NL_ENTITY_EDGE_HIGHLIGHT 0.1 // 0.0 no highlight ~ 1.6 bright highlight
 
 /* Weather particles */
-#define NL_WEATHER_SPECK 0.6         // [toggle] 0.0 vanilla texture ~ 1.0 soft speck
+#define NL_WEATHER_SPECK 0.8         // [toggle] 0.0 vanilla texture ~ 1.0 soft speck
 #define NL_WEATHER_RAIN_SLANT 4.0    // 1.0 minimal ~ 8.0 violent
-#define NL_WEATHER_PARTICLE_SIZE 1.0 // 0.5 tiny ~ 4.0 large
+#define NL_WEATHER_PARTICLE_SIZE 0.8 // 0.5 tiny ~ 4.0 large
 
 /* Lava effects */
 #define NL_LAVA_NOISE            // [toggle] darken lava in certain regions

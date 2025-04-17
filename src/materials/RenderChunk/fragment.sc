@@ -39,9 +39,9 @@ float time = ViewPositionAndTime.w;
   vec4 color = v_color0;
 
 float shadowmap = smoothstep(0.875, 0.81, pow(uvl.y,2.0));
-  shadowmap = mix(shadowmap, 0.0, env.rainFactor);
-  shadowmap = mix(shadowmap,0.0,pow(uvl.x * 1.2, 7.0));
-  shadowmap = mix(shadowmap, shadowmap*0.5, night);
+  shadowmap *= mix(1.0, 0.0, env.rainFactor);
+  shadowmap *= mix(1.0,0.0,pow(uvl.x * 1.2, 7.0));
+  shadowmap *= mix(1.0, 0.5, night);
   diffuse.rgb *= 1.0-0.3*shadowmap;
   
 vec3 normal = normalize(cross(dFdx(v_position),dFdy(v_position)));

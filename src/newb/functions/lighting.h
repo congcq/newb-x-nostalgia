@@ -27,11 +27,11 @@ vec3 sunLightTint(float dayFactor, float rain, vec3 FOG_COLOR) {
     mix(morningcol, NL_NOON_SUN_COL, noon),
     dayFactor
   );
-  clearTint *= 1.0-0.6*rain;
+  clearTint *= 1.0-0.35*rain;
   float r = 1.0-rain;
   r *= r;
 
-  return mix(vec3(0.4,0.4,0.5), clearTint, r*r);
+  return mix(mix(vec3(0.98,1.0,0.99), vec3(0.3,0.5,0.7), night), clearTint, r*r);
 }
 
 vec3 nlLighting(

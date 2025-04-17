@@ -41,7 +41,7 @@ vec4 renderCloudsSimple(nl_skycolor skycol, vec3 pos, highp float t, float rain)
 float cloudDf(vec3 pos, float rain, vec2 boxiness) {
   boxiness *= 0.999;
   #ifdef SOFTER_CLOUDS
-  boxiness.y *= 0.999*pos.y;
+  boxiness.y *= 0.999*pos.y*pos.y;
   #endif
   vec2 p0 = floor(pos.xz);
   vec2 u = max((pos.xz-p0-boxiness.x)/(1.0-boxiness.x), 0.0);
@@ -104,7 +104,11 @@ vec4 renderCloudsRounded(
   
   col.rgb += 0.5*zenithCol*d.x*rain;
   #ifdef SOFTER_CLOUD
-  col.rgb += mix(col.rgb, mix(col.rgb, zenitCol, 0.95), d.x*d.y);
+  col.rgb = horizonCol;
+  col.rgb = mix(col.rgb, zenitCol, smoothstep(0.5, 0.0, d.x*d.y));
+  col.rgb *= 1.0-0.5*smoothstep(0.5, 0.0, d.x*d.y)
+  #else
+  col.rgb *= 1.3;
   #endif
   return col;
 }
@@ -114,7 +118,7 @@ vec4 renderCloudsRounded(
 float cloudDf2(vec3 pos, float rain, vec2 boxiness) {
   boxiness *= 0.999;
   #ifdef SOFTER_CLOUDS
-  boxiness.y *= 0.999*pos.y;
+  boxiness.y *= 0.999*pos.y*pos.y;
   #endif
   vec2 p0 = floor(pos.xz);
   vec2 u = max((pos.xz-p0-boxiness.x)/(1.0-boxiness.x), 0.0);
@@ -179,7 +183,11 @@ vec4 renderCloudsRounded2(
   col.a *= 0.9;
   
   #ifdef SOFTER_CLOUD
-  col.rgb += mix(col.rgb, mix(col.rgb, zenitCol, 0.95), d.x*d.y);
+  col.rgb = horizonCol;
+  col.rgb = mix(col.rgb, zenitCol, smoothstep(0.5, 0.0, d.x*d.y));
+  col.rgb *= 1.0-0.5*smoothstep(0.5, 0.0, d.x*d.y)
+  #else
+  col.rgb *= 1.3;
   #endif
   return col;
 }

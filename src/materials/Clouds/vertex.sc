@@ -45,7 +45,8 @@ void main() {
       worldPos.y -= 10.0;
       vec3 cp = a_position.xyz;
       color.rgb = skycol.zenith + skycol.horizon;
-      color.rgb = mix(color.rgb, mix(color.rgb , skycol.zenith, 0.9), smoothstep(0.15, 0.0,cp.x*cp.y));
+      color.rgb = mix(color.rgb, mix(color.rgb , skycol.zenith, 0.95), smoothstep(0.15, 0.0,cp.x*cp.y));
+      color.rgb *= 1.3;
       color.rgb = colorCorrection(color.rgb);
       color.a = NL_CLOUD0_OPACITY;
       float cloudFade = smoothstep(6.5,0.0,length((worldPos.xyz)*vec3(0.01,0.005,0.01)));

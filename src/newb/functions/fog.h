@@ -8,6 +8,8 @@ float nlRenderFogFade(float relativeDist, vec3 FOG_COLOR, vec2 FOG_CONTROL) {
   
   float expectedFogX = 0.029 + (0.09*FOG_CONTROL.y*FOG_CONTROL.y);
 
+float night = pow(max(min(1.0 - FOG_COLOR.r * 1.5, 1.0), 0.0), 1.2);
+
   // nether wastes, basalt delta, crimson forest, wrapped forest, soul sand valley
   bool netherFogCtrl = (FOG_CONTROL.x<0.14  && abs(FOG_CONTROL.x-expectedFogX) < 0.02);
   bool netherFogCol = (FOG_COLOR.r+FOG_COLOR.g)>0.0;
@@ -26,7 +28,7 @@ FOG_CONTROL.xy *= smoothstep(0.0, 1.0, relativeDist);
     // misty effect
     
     float density = NL_MIST_DENSITY*(19.0 - 18.0*FOG_COLOR.g);
-    
+    density *= mix(1.0, 1.5, night);
     fade += (1.0-fade)*(0.3-0.3*exp(-relativeDist*relativeDist*density));
 if(end){
     fade *= 0.4;

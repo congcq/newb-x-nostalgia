@@ -37,7 +37,7 @@ void main() {
         offsetPos.y += 40.0;
         offsetPos.xz += parallax;
         vec4 color2 = renderCloudsRounded2(vDir, offsetPos, v_color1.a, v_color2.a*2.0, v_color2.rgb, v_color1.rgb, NL_CLOUD_PARAMS(_LAYER2_));
-        color2.a *= smoothstep(0.05, 0.52,vDir.y);
+        color2.a *= smoothstep(0.035, 0.5,vDir.y);
         color = mix(color2, color, 0.2 + 0.8*color.a);
       #endif
          vec3 additional = (NL_DAY_ZENITH_COL+NL_DAWN_ZENITH_COL+NL_NIGHT_ZENITH_COL)/3.0 ;
@@ -49,7 +49,7 @@ void main() {
       #endif
       color.a*= 0.8;
       color.a *= v_color0.a;
-      color.a *= smoothstep(0.03, 0.52,vDir.y);
+      color.a *= smoothstep(0.015, 0.5,vDir.y);
       float cloudalpha = color.a;
       color.a = mix(mix(color.a, cloudalpha*0.7, dusk), cloudalpha*0.8, night);
     #else
